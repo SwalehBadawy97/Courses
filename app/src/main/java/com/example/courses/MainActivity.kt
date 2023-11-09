@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -40,7 +41,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    TopicGrid(modifier = Modifier.padding(8.dp))
+                    TopicGrid()
                 }
             }
         }
@@ -55,6 +56,9 @@ fun TopicGrid(modifier: Modifier = Modifier){
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(8.dp,8.dp)
+
+
     ){
         items(DataSource.topics){
                 topic -> TopicCard(topic = topic)
